@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin: 0 20rem;
 }
 
 .mainContent {
@@ -11,4 +12,29 @@
 
 .applist {
   padding: 5rem;
+}
+
+.actionBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tableRow {
+  cursor: pointer;
+}
+
+.tableRow:hover {
+  background-color: rgba(0, 255, 255, 0.253);
+}
+
+.taglist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.tag {
+  text-align: left;
+  padding: 1rem;
+  margin: 0.4rem;
 }

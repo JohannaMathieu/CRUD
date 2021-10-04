@@ -2,10 +2,13 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton } from '@mui/material';
 import { Delete, ModeEdit } from '@mui/icons-material';
+import { useHistory } from "react-router-dom";
+
 
 
 function Applist() {
     const [applist, setApplist] = useState([]);
+    let history = useHistory();
 
     useEffect(() => {
         axios.get('https://615adf5e4a360f0017a812ee.mockapi.io/api/App')
@@ -18,10 +21,11 @@ function Applist() {
         });
     }, []);
 
+
     return (
         <div className='applist'>
             <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <Table sx={{ minWidth: 750 }} aria-label="simple table">
                     <TableHead>
                     <TableRow>
                         <TableCell>App ID</TableCell>
@@ -36,6 +40,10 @@ function Applist() {
                         <TableRow
                         key={app.ID}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                        onClick={() => {
+                            history.push(`/${app.ID}`)
+                        }}
+                        className='tableRow'
                         >
                         <TableCell component="th" scope="row">{app.ID}</TableCell>
                         <TableCell >{app.Name}</TableCell>
