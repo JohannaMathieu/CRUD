@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { Typography, Stack, Button, TextField } from '@mui/material';
+import Applist from './components/Applist';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="mainContent">
+        <Typography variant="h2" py={3}>
+          Manage ethinking Apps
+        </Typography>
+        <Stack direction="row" justifyContent="flex-end" alignItems="center" spacing={2} >
+          <TextField id="search" label="search" variant="outlined" />
+          <Button variant='contained' color='primary'>Add App</Button>
+        </Stack>
+        <Applist></Applist>
+
+      </div>
+
     </div>
   );
 }
